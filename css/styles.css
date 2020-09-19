@@ -1,0 +1,232 @@
+/* локальное подключение шрифтов */
+@font-face {
+  font-family: "Gelion";
+  src: url("../fonts/Gelion/Gelion-Bold.eot");
+  src: url("../fonts/Gelion/Gelion-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Gelion/Gelion-Bold.woff") format("woff"),
+    url("../fonts/Gelion/Gelion-Bold.ttf") format("truetype"), url("../fonts/Gelion/Gelion-Bold.svg#Gelion-Bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gelion";
+  src: url("../fonts/Gelion/Gelion-SemiBold.eot");
+  src: url("../fonts/Gelion/Gelion-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/Gelion/Gelion-SemiBold.woff") format("woff"),
+    url("../fonts/Gelion/Gelion-SemiBold.ttf") format("truetype"), url("../fonts/Gelion/Gelion-SemiBold.svg#Gelion-SemiBold") format("svg");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gelion";
+  src: url("../fonts/Gelion/Gelion-Medium.eot");
+  src: url("../fonts/Gelion/Gelion-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Gelion/Gelion-Medium.woff") format("woff"),
+    url("../fonts/Gelion/Gelion-Medium.ttf") format("truetype"), url("../fonts/Gelion/Gelion-Medium.svg#Gelion-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gelion";
+  src: url("../fonts/Gelion/Gelion-Regular.eot");
+  src: url("../fonts/Gelion/Gelion-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Gelion/Gelion-Regular.woff") format("woff"),
+    url("../fonts/Gelion/Gelion-Regular.ttf") format("truetype"), url("../fonts/Gelion/Gelion-Regular.svg#Gelion-Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Red Hat Display";
+  src: url("../fonts/RedHatDisplay/RedHatDisplay-Bold.eot");
+  src: url("../fonts/RedHatDisplay/RedHatDisplay-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/RedHatDisplay/RedHatDisplay-Bold.woff") format("woff"), url("../fonts/RedHatDisplay/RedHatDisplay-Regular.ttf") format("truetype"),
+    url("../fonts/RedHatDisplay/RedHatDisplay-Regular.svg") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --main-color: #4b4f51;
+  --accent-color: #fa5652;
+  --title-color: #035755;
+  --light-red: rgba(250, 86, 82, 0.15);
+}
+
+html {
+  box-sizing: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* capitalize - 1st uppercase, others - lowercase */
+body {
+  font-family: "Gelion", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.21;
+  text-transform: capitalize;
+  color: var(--main-color);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+/* to delete margins; 100% to be inline with parent */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.btn {
+  border: 2px solid var(--accent-color);
+  border-radius: 46px;
+  padding: 17px 45px;
+
+  font-weight: 500;
+  line-height: 1.22;
+  color: var(--accent-color);
+  background-color: transparent;
+}
+
+.flexbox {
+  display: flex;
+}
+/* maybe added padding R+L & align; nothing more */
+.container {
+  width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo {
+  font-family: "Red Hat Display", sans-serif;
+  font-style: 700;
+  font-size: 19px;
+  line-height: 1.316;
+  text-transform: uppercase;
+  color: var(--title-color);
+  /* to put aside from others aligned to the right */
+  margin-right: auto;
+}
+
+.menu {
+  display: inline-flex;
+}
+
+.menu-item:not(:last-child) {
+  margin-right: 45px;
+}
+
+.menu-link {
+  line-height: 1.22;
+  color: var(--title-color);
+}
+
+.menu-link:hover,
+.menu-link:focus {
+  color: var(--accent-color);
+}
+
+.section {
+  padding: 40px 0px;
+}
+
+.section-title {
+  margin-bottom: 30px;
+
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.2;
+  text-align: center;
+
+  color: var(--title-color);
+}
+
+.section-description {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto 110px;
+}
+
+.title-label {
+  display: block;
+  margin-bottom: 10px;
+
+  font-size: 29px;
+  line-height: 1.5;
+
+  color: var(--accent-color);
+}
+
+.item-title {
+  margin-bottom: 13px;
+
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.47;
+
+  color: var(--title-color);
+}
+
+/* .contagion-list {
+  flex-wrap: wrap;
+}
+
+.contagion-item {
+  margin-right: 30px;
+
+  width: calc((100% - 2 * 30px) / 3);
+  line-height: 1.85;
+  text-align: center;
+}
+
+.contagion-item:nth-child(3n) {
+  margin-right: 0;
+}
+.contagion-item-content {
+  padding: 54px 52px 78px;
+} */
+
+.contagion-list {
+  flex-wrap: wrap;
+  margin: -15px;
+}
+
+.contagion-item {
+  margin: 15px;
+  text-align: center;
+  --col: 3;
+  width: calc((100% - var(--col) * 30px) / var(--col));
+}
+
+.page-header {
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
+.page-header .flexbox {
+  /* move all to the right */
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navigation {
+  margin-right: 40px;
+}
+/* соседние эл-ты (н-р, ли) - марджин;  паддинг от родителя */
