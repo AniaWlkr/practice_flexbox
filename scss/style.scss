@@ -1,0 +1,510 @@
+@import "./utils/mixin";
+@import "./base/fonts";
+
+:root {
+  --main-color: #4b4f51;
+  --title-color: #035755;
+  --accent-color: #fa5652;
+  --light-red: rgba(250, 86, 82, 0.15);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  /* outline: 1px solid red; */
+}
+
+body {
+  font-family: "Gelion", sans-serif;
+  font-size: 18px;
+  line-height: 2.21;
+  text-transform: capitalize;
+  color: var(--main-color);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.btn {
+  border: 2px solid var(--accent-color);
+  border-radius: 46px;
+  padding: 17px 45px;
+  font-weight: 500;
+  line-height: 1.22;
+  color: var(--accent-color);
+  background-color: transparent;
+}
+
+.btn-accent {
+  color: white;
+  background-color: var(--accent-color);
+}
+
+.flexbox {
+  display: flex;
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  @include for-size(mobile) {
+    width: 480px;
+  }
+
+  @include for-size(tablet) {
+    width: 768px;
+  }
+
+  @include for-size(desktop) {
+    width: 1440px;
+  }
+}
+
+.btn-burger-menu {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--accent-color);
+}
+
+// Стили для мобильного меню
+
+@media screen and (max-width: 1439px) {
+  .nav-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 100vh;
+    padding-top: 12%;
+    padding-bottom: 12%;
+    background-color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+    z-index: 50;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: 1.5s;
+    -webkit-box-shadow: 0px 8px 50px 12px #ffffff;
+    box-shadow: 0px 8px 50px 12px #ffffff;
+
+    &.is-open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      transition: 1s;
+    }
+  }
+
+  .btn-burger-menu {
+    display: inline-block;
+    position: relative;
+    z-index: 55;
+  }
+
+  .menu-icon {
+    fill: #fff;
+  }
+
+  // отображать только одну иконку на кнопке
+
+  .icon-close {
+    display: none;
+  }
+
+  .is-open.btn-burger-menu {
+    .icon-close {
+      display: block;
+    }
+
+    .icon-menu {
+      display: none;
+    }
+  }
+}
+
+.nav-container {
+  @include for-size(desktop) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.content-box {
+  width: 50%;
+}
+
+.title-container {
+  width: 50%;
+  margin: 0 auto 110px;
+  text-align: center;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.316;
+  text-transform: uppercase;
+  color: var(--title-color);
+}
+
+.logo span {
+  margin-left: 13px;
+}
+
+.menu {
+  margin-bottom: 50px;
+  @include for-size(desktop) {
+    display: inline-flex;
+    margin-bottom: 0;
+  }
+}
+
+.menu-item:not(:last-child) {
+  margin-bottom: 45px;
+  @include for-size(desktop) {
+    margin-right: 45px;
+    margin-bottom: 0;
+  }
+}
+
+.menu-link {
+  line-height: 1.22;
+  color: var(--title-color);
+}
+
+.menu-link:hover,
+.menu-link:focus {
+  color: var(--accent-color);
+}
+
+.social-list {
+  display: inline-flex;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+}
+
+.social-item:not(:last-child) {
+  margin-right: 40px;
+}
+
+.social-icon {
+  fill: var(--title-color);
+}
+
+.social-icon:hover {
+  fill: var(--accent-color);
+}
+
+.section {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.section-title {
+  margin-bottom: 30px;
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--title-color);
+}
+
+.title-label {
+  display: block;
+  font-size: 29px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  color: var(--accent-color);
+}
+
+.item-title {
+  margin-bottom: 13px;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.47;
+  color: var(--title-color);
+}
+
+.page-header {
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
+.page-header .flexbox {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.page-header .logo {
+  margin-right: auto;
+}
+
+.navigation {
+  @include for-size(desktop) {
+    margin-right: 40px;
+  }
+}
+
+.hero {
+  background-image: url(../images/stay-at-home.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.hero .content-box {
+  padding-top: 280px;
+  padding-bottom: 210px;
+  padding-right: 60px;
+}
+
+.hero-title {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 32px;
+  line-height: 1.22;
+  color: var(--accent-color);
+  margin-bottom: 96px;
+}
+
+.hero-description {
+  font-size: 24px;
+  margin-bottom: 54px;
+}
+
+.coronavirus {
+  background-image: url(../images/coronavirus.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+}
+
+.coronavirus .content-box {
+  margin-left: auto;
+}
+
+/* .contagion-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contagion-item {
+  width: calc((100% - 30px * 2) / 3);
+  margin-right: 30px;
+  text-align: center;
+}
+
+.contagion-item:nth-child(3n) {
+  margin-right: 0;
+}*/
+
+.contagion-item-content {
+  padding: 54px 52px 78px;
+}
+
+.contagion-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px;
+}
+
+.contagion-item {
+  --col: 3;
+  width: calc((100% - 30px * var(--col)) / var(--col));
+  /* width: calc((100% - 30px * 3) / 3); */
+  margin: 15px;
+  text-align: center;
+  background: #ffffff;
+  box-shadow: 0px 5px 80px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  /* transition: 2s; */
+}
+
+/* .contagion-list:hover .contagion-item {
+  --col: 2;
+} */
+
+.contagion-item-content::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 290px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* .air-img::before {
+  background-image: url(../images/air-transmission.png);
+}
+
+.human-contacts-img:before {
+  background-image: url(../images/human-contacts.png);
+}
+
+.objects-img::before {
+  background-image: url(../images/containted-objects.png);
+} */
+
+.contagion-item:nth-child(1) .contagion-item-content::before {
+  background-image: url(../images/air-transmission.png);
+}
+
+.contagion-item:nth-child(2) .contagion-item-content::before {
+  background-image: url(../images/human-contacts.png);
+}
+
+.contagion-item:nth-child(3) .contagion-item-content::before {
+  background-image: url(../images/containted-objects.png);
+}
+
+.symptoms-img {
+  margin: 0 auto;
+}
+
+.what-we-do-list {
+  counter-reset: item;
+}
+
+.what-we-do-item {
+  padding-top: 150px;
+  padding-bottom: 130px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+}
+
+.what-we-do-item:nth-child(1) {
+  background-image: url(../images/what-we-do-1.jpg);
+}
+
+.what-we-do-item:nth-child(2) {
+  background-image: url(../images/what-we-do-2.jpg);
+}
+
+.what-we-do-item:nth-child(3) {
+  background-image: url(../images/what-we-do-3.jpg);
+}
+
+.what-we-do-item:nth-child(4) {
+  background-image: url(../images/what-we-do-4.jpg);
+}
+
+.what-we-do-item:nth-child(even) {
+  background-position: left center;
+}
+
+.what-we-do-item:nth-child(even) .content-box {
+  margin-left: auto;
+}
+
+.what-we-do-item .content-box:before {
+  counter-increment: item;
+  content: "0" counter(item);
+  display: block;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  color: var(--accent-color);
+  font-family: "Red Hat Display";
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 75px;
+  text-align: center;
+  background-color: var(--light-red);
+}
+
+.background-gradient {
+  background: linear-gradient(360deg, rgba(255, 241, 241, 0.5) 0%, rgba(255, 241, 241, 0) 108.69%);
+}
+
+.subscricribe .container {
+  text-align: center;
+}
+
+.section-title {
+  max-width: 661px;
+  margin: 0 auto 62px;
+
+  font-family: Gelion;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 1.203;
+}
+
+.input-form {
+  display: inline-block;
+
+  padding: 18px 17px;
+  background: white;
+  box-shadow: 0px 8px 80px rgba(0, 0, 0, 0.06);
+  border-radius: 57px;
+  border: 1px solid transparent;
+}
+
+.input-form:focus-within {
+  border: 1px solid tomato;
+}
+
+.mail-input {
+  width: 520px;
+  font-family: Gelion;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.181;
+  border: none;
+}
+
+.mail-input:focus {
+  outline: none;
+}
+
+.mail-input::placeholder {
+  color: #758681;
+}
+
+.footer .flexbox {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright {
+  text-align: center;
+  padding: 25px 0;
+}
